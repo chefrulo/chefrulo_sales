@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <!-- Add cost column after price_unit in the order lines tree -->
-            <xpath expr="//field[@name='order_line']//field[@name='price_unit']" position="after">
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
                 <field name="product_cost" string="Cost" optional="hide" groups="base.group_user"/>
             </xpath>
         </field>
