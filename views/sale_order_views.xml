@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Add cost column to sale order line tree view -->
+    <record id="view_order_form_inherit_cost" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.cost</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add cost column after price_unit in the order lines tree -->
+            <xpath expr="//field[@name='order_line']//field[@name='price_unit']" position="after">
+                <field name="product_cost" string="Cost" optional="hide" groups="base.group_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
